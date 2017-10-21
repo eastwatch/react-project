@@ -1,12 +1,9 @@
 const express = require('express');
+require('./services/passport');
+
 const app = express();
 
-app.get('/', (req, res) => {
-	res.send({ hi: 'Harvey' });
-});
+require('./routes/authRoutes')(app);
 
-// dynamic port binding
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
-
-// specify a start strict
